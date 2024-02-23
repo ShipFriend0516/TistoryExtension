@@ -1,6 +1,17 @@
 function func() {
   console.log('컨텐츠 스크립트가 정상적으로 로드되었습니다.');
+  let isActived: boolean = true;
+  chrome.storage.local.get('func_1').then(result => {
+    if (typeof result.func_1 === 'boolean') isActived = result.func_1;
 
+    console.log(result.func_1);
+  });
+  if (!isActived) {
+    console.log('기능이 비활성화 되어있습니다.');
+    return;
+  } else {
+    console.log('기능이 활성화 되어있습니다.');
+  }
   const menu = document.body.querySelector('#mceu_18');
   console.log(menu);
   const altTager = document.createElement('div');
