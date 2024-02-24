@@ -4,6 +4,7 @@ import withSuspense from '@src/shared/hoc/withSuspense';
 import withErrorBoundary from '@src/shared/hoc/withErrorBoundary';
 import FuncList from './components/FuncList';
 import FunctionDetailSetting from './components/FunctionDetailSetting';
+import Credit from './components/Credit';
 
 const Popup = () => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -27,6 +28,7 @@ const Popup = () => {
       </div>
       {selectedTab === 0 && <FuncList />}
       {selectedTab === 1 && <FunctionDetailSetting />}
+      {selectedTab === 2 && <Credit />}
     </main>
   );
 };

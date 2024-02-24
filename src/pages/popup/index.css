@@ -27,3 +27,16 @@ button {
   display: inline-flex;
   justify-content: space-between;
 }
+/* Credit Component */
+
+.credit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.credit > div {
+  display: flex;
+  gap: 3px;
+}

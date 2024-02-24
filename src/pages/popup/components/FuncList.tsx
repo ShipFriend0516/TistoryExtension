@@ -41,9 +41,6 @@ const FuncList = () => {
       </ul>
       <div className="btnWrapper">
         <button>단축키 설정</button>
-        <a href="https://github.com/ShipFriend0516" target="_blank" rel="noreferrer">
-          <button>깃허브</button>
-        </a>
       </div>
     </div>
   );
