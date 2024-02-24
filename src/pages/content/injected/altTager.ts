@@ -12,7 +12,6 @@ async function func() {
   }
 
   const menu = document.body.querySelector('#mceu_18');
-  console.log(menu);
   const altTager = document.createElement('div');
   altTager.classList.add('mce-widget', 'mce-btn', 'mce-menubtn', 'mce-fixed-width');
 
@@ -24,19 +23,12 @@ async function func() {
   menu.insertAdjacentElement('afterend', altTager);
 
   altTager.addEventListener('click', () => {
-    const userInput = window.prompt('텍스트를 입력하세요:', '');
+    const userInput = window.prompt('본문의 Alt 태그를 모두 수정합니다:', '');
 
     if (userInput !== null) {
-      // 사용자가 확인 버튼을 눌렀을 때의 로직
-      console.log('본문의 Alt 태그를 모두 수정합니다:', userInput);
-
       const post: Document = (document.getElementById('editor-tistory_ifr') as HTMLIFrameElement).contentDocument;
       const imgs: HTMLImageElement[] = Array.from(post.body.getElementsByTagName('img'));
-      console.log(imgs);
       imgs.forEach(img => (img.alt = userInput));
-    } else {
-      // 사용자가 취소 버튼을 눌렀거나 창을 닫았을 때의 로직
-      console.log('사용자가 입력을 취소했습니다.');
     }
   });
 }

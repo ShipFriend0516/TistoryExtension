@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const FunctionDetailSetting = () => {
   type SettingList = Array<[string, string[]]>;
 
@@ -7,9 +9,16 @@ const FunctionDetailSetting = () => {
     ['', []],
   ];
 
+  const [textareaOpen, setTextAreaOpen] = useState(false);
+  const [template, setTemplate] = useState('');
+
+  const 서식저장 = () => {
+    setTextAreaOpen(false);
+  };
+
   return (
-    <div>
-      <div className="funcDetailSetting">
+    <div className="funcDetailSetting">
+      <div>
         {settings.map((setting, i) => {
           const key = `func_${i}`;
           return (
@@ -27,6 +36,18 @@ const FunctionDetailSetting = () => {
             </div>
           );
         })}
+      </div>
+      <hr />
+      <div className="keymapSetting">
+        <h3>단축키</h3>
+        {textareaOpen ? (
+          <div>
+            <textarea onChange={e => setTemplate(e.target.value)} value={template}></textarea>
+            <button onClick={서식저장}>저장</button>
+          </div>
+        ) : (
+          <button onClick={() => setTextAreaOpen(true)}>서식 관리</button>
+        )}
       </div>
     </div>
   );

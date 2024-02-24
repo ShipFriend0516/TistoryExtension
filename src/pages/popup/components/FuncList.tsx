@@ -39,9 +39,6 @@ const FuncList = () => {
           );
         })}
       </ul>
-      <div className="btnWrapper">
-        <button>단축키 설정</button>
-      </div>
     </div>
   );
 };

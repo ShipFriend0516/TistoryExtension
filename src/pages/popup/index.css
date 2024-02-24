@@ -8,6 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   position: relative;
+  overflow-x: visible;
 }
 
 code {
@@ -18,6 +19,9 @@ button {
   border: 0;
 }
 
+.funcDetailSetting {
+  padding: 16px;
+}
 .funcDetailSetting span {
   margin-right: 6px;
   font-size: 14px;
@@ -27,6 +31,26 @@ button {
   display: inline-flex;
   justify-content: space-between;
 }
+
+.keymapSetting > div {
+  display: flex;
+}
+
+.keymapSetting > div > textarea {
+  border: 2px solid darkseagreen;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.keymapSetting > div > button {
+  margin-left: -2px;
+  color: white;
+  background-color: darkseagreen;
+  border: 2px solid darkseagreen;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
 /* Credit Component */
 
 .credit {
@@ -34,6 +58,7 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 3px;
+  padding: 10px 0;
 }
 
 .credit > div {

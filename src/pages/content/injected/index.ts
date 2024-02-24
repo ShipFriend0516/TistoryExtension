@@ -9,7 +9,7 @@
  */
 
 import('@pages/content/injected/altTager');
-
+import('@pages/content/injected/keymap');
 // const script = document.createElement('script');
 // script.src = chrome.runtime.getURL('src/pages/injected/index.js');
 // (document.head || document.documentElement).appendChild(script);
