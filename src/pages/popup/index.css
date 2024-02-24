@@ -17,3 +17,13 @@ code {
 button {
   border: 0;
 }
+
+.funcDetailSetting span {
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.funcDetailSetting .select {
+  display: inline-flex;
+  justify-content: space-between;
+}
