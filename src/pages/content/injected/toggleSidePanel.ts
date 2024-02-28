@@ -46,6 +46,20 @@ function toggleSidePanel() {
   // 문서 전체의 변화를 감지
   observer.observe(document.body, { childList: true, subtree: true });
 
+  async function sendPageBody() {
+    // HTML 문서 전달
+    const post = (document.getElementById('editor-tistory_ifr') as HTMLIFrameElement).contentDocument;
+    console.log(post.body);
+    await chrome.runtime.sendMessage({
+      action: 'sendPageBody',
+      options: { data: post.body.innerHTML },
+    });
+  }
+
+  setInterval(() => {
+    sendPageBody();
+  }, 20000);
+
   // TargetNode 인터페이스에 대한 유틸리티 함수
   function isTargetNode(node: Node): node is TargetNode {
     try {
@@ -57,13 +71,3 @@ function toggleSidePanel() {
 }
 
 export default toggleSidePanel();
-
-/**
- * <div id="editor-mode-kakao"
- * class="mce-tistory-mode-item mce-menu-active mce-menu-item mce-menu-item-normal mce-stack-layout-item mce-first" tabindex="-1" role="menuitem" aria-checked="false">
- * <i class="mce-ico mce-i-none"></i>&nbsp;
- * <span id="editor-mode-kakao-text" class="mce-text">
- * 기본모드
- * </span>
- * </div>
- */

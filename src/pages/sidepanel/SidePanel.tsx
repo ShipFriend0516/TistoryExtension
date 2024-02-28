@@ -1,42 +1,40 @@
-import React from 'react';
-import logo from '@assets/img/logo.svg';
 import '@pages/sidepanel/SidePanel.css';
-import useStorage from '@src/shared/hooks/useStorage';
-import exampleThemeStorage from '@src/shared/storages/exampleThemeStorage';
 import withSuspense from '@src/shared/hoc/withSuspense';
 import withErrorBoundary from '@src/shared/hoc/withErrorBoundary';
+import React, { useState } from 'react';
 
 const SidePanel = () => {
-  const theme = useStorage(exampleThemeStorage);
+  const [html, setHTML] = useState<string[]>([]);
 
+  chrome.runtime.onMessage.addListener(message => {
+    console.log(message);
+
+    setHTML(parseHTMLToString(message.options.data));
+  });
+
+  function parseHTMLToString(htmlString: string) {
+    // HTML 문자열을 파싱하여 DOM 객체 생성
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlString, 'text/html');
+    console.log(doc.body.children);
+
+    const htmlArray = [];
+    for (const i of doc.body.children) {
+      htmlArray.push(i.outerHTML);
+    }
+
+    return htmlArray;
+  }
   return (
-    <div
-      className="App"
-      style={{
-        backgroundColor: theme === 'light' ? '#fff' : '#000',
-      }}>
-      <header className="App-header" style={{ color: theme === 'light' ? '#000' : '#fff' }}>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/pages/sidepanel/SidePanel.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: theme === 'light' && '#0281dc', marginBottom: '10px' }}>
-          Learn React!
-        </a>
-        <button
-          style={{
-            backgroundColor: theme === 'light' ? '#fff' : '#000',
-            color: theme === 'light' ? '#000' : '#fff',
-          }}
-          onClick={exampleThemeStorage.toggle}>
-          Toggle theme
-        </button>
-      </header>
+    <div className="sidePanel">
+      <h1>HTML 사이드바</h1>
+
+      {html.map((element, i) => (
+        <pre key={i}>
+          <span>{i + 1}</span>
+          {element}
+        </pre>
+      ))}
     </div>
   );
 };
