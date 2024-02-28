@@ -12,10 +12,8 @@ async function keyMapping() {
   }
 
   const post: Document = (document.getElementById('editor-tistory_ifr') as HTMLIFrameElement).contentDocument;
-  console.log(post.body);
 
   const data = await chrome.storage.local.get('template1');
-  console.log(data);
 
   post.addEventListener('keydown', (event: KeyboardEvent) => {
     if (data.template1 === '' || data.template1 === undefined) {
