@@ -1,7 +1,17 @@
 // 사이드바 코드
 
-function toggleSidePanel() {
+async function toggleSidePanel() {
   console.log('사이드바 스크립트가 정상적으로 로드되었습니다.');
+
+  const result = await chrome.storage.local.get('func_2');
+  if (typeof result.func_2 === 'boolean') {
+    if (!result.func_2) {
+      console.log('사이드바 기능이 비활성화 되어있습니다.');
+      return;
+    } else {
+      console.log('사이드바 기능이 활성화 되어있습니다.');
+    }
+  }
 
   // 버튼 추가
   const btn = document.createElement('button');

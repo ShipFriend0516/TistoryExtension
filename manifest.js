@@ -33,7 +33,7 @@ const manifest = {
   },
   content_scripts: [
     {
-      matches: ['https://*.tistory.com/manage/newpost/*'],
+      matches: ['https://*.tistory.com/manage/newpost/*', 'https://*.tistory.com/manage/page?returnURL=/manage/pages'],
       js: ['src/pages/contentInjected/index.js'],
       // KEY for cache invalidation
       css: ['assets/css/contentStyle<KEY>.chunk.css'],
