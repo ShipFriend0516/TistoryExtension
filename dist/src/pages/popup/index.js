@@ -1,7 +1,7 @@
 import { r as reactExports, j as jsxRuntimeExports, a as addHmrIntoView, c as createRoot } from "../../../assets/js/_virtual_reload-on-update-in-view.js";
 import { w as withErrorBoundary, a as withSuspense } from "../../../assets/js/withErrorBoundary.js";
 const FuncList = () => {
-  const funcList = ["추가 단축키 활성화", "이미지 대체텍스트 입력기", "페이지 미리보기"];
+  const funcList = ["추가 단축키 활성화", "이미지 대체텍스트 입력기", "이미지 사이즈 조절기"];
   const [checkedList, setCheckedList] = reactExports.useState({});
   const onClickCheckBox = (event, index) => {
     const funcKey = `func_${index}`;

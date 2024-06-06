@@ -55,7 +55,7 @@ var __vitePreload = function preload(baseModule, deps, importerUrl) {
 };
 __vitePreload(() => import("../../../assets/js/altTager.js"), true ? __vite__mapDeps([]) : void 0);
 __vitePreload(() => import("../../../assets/js/keymap.js"), true ? __vite__mapDeps([]) : void 0);
-__vitePreload(() => import("../../../assets/js/toggleSidePanel.js"), true ? __vite__mapDeps([]) : void 0);
+__vitePreload(() => import("../../../assets/js/imageSize.js"), true ? __vite__mapDeps([]) : void 0);
 console.log("index.ts 로드 완료");
 function __vite__mapDeps(indexes) {
   if (!__vite__mapDeps.viteFileDeps) {

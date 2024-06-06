@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const FuncList = () => {
-  const funcList = ['추가 단축키 활성화', '이미지 대체텍스트 입력기', '페이지 미리보기'];
+  const funcList = ['추가 단축키 활성화', '이미지 대체텍스트 입력기', '이미지 사이즈 조절기'];
   const [checkedList, setCheckedList] = useState({});
 
   const onClickCheckBox = (event: React.MouseEvent<HTMLInputElement>, index: number) => {
