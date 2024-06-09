@@ -1,33 +1,38 @@
 const FunctionDetailSetting = () => {
-  // type SettingList = Array<[string, string[]]>;
-
-  // const settings: SettingList = [
-  //   ['ALT 태그 입력 방식', ['모든 이미지', '개별 이미지']],
-  //   ['', []],
-  // ];
+  const shortcuts = [
+    {
+      keys: 'Ctrl + Shift + S',
+      description: '글을 발행',
+    },
+    {
+      keys: 'Ctrl + Shift + U',
+      description: '이미지 업로드',
+    },
+    {
+      keys: 'Ctrl + Shift + F',
+      description: '서식 창 열기',
+    },
+  ];
 
   return (
     <div className="funcDetailSetting">
-      {/* <div>
-        {settings.map((setting, i) => {
-          const key = `func_${i}`;
-          return (
-            <div className="select" key={key}>
-              <span>{setting[0]}</span>
-              <select>
-                {setting[1].map((option, i) => {
-                  return (
-                    <option key={i} value={option}>
-                      {option}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-          );
-        })}
-      </div> */}
-      <div>기능 세부 설정은 추후 구현 예정</div>
+      <h2>단축키 설명</h2>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>단축키</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          {shortcuts.map((shortcut, index) => (
+            <tr key={index}>
+              <td>{shortcut.keys}</td>
+              <td>{shortcut.description}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

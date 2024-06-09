@@ -89,3 +89,16 @@
   background-color: #434242;
   color: white;
 }
+
+.table {
+  border: 1px solid lightgray;
+}
+
+.table > thead > tr {
+  border-bottom: 1px solid black;
+}
+
+.table td,
+th {
+  padding: 0.3em 0.8em;
+}
