@@ -19,6 +19,11 @@ button {
   border: 0;
 }
 
+.ment {
+  text-align: center;
+  color: gray;
+}
+
 .funcDetailSetting {
   /* padding: 4px; */
 }

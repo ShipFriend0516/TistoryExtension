@@ -39,6 +39,9 @@ const FuncList = () => {
           );
         })}
       </ul>
+      <div className="ment">
+        기능 활성화/비활성화 후 <b>새로고침</b>해야 적용됩니다.
+      </div>
     </div>
   );
 };
