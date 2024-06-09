@@ -24,6 +24,12 @@ button {
   color: gray;
 }
 
+.issueMent {
+  font-size: 1.1em;
+  margin-right: 3px;
+  font-weight: bold;
+}
+
 .funcDetailSetting {
   /* padding: 4px; */
 }
