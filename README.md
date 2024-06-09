@@ -6,6 +6,9 @@
 # 티스토리 글쓰기 향상 크롬 익스텐션
 티스토리 블로그 글쓰기 사용자 경험 향상을 위해 제작, React + Vite + TypeScript 보일러플레이트를 사용해서 제작
 
+![image](https://github.com/ShipFriend0516/StoryHelper/assets/98446924/56e3330f-d756-4b69-9bad-79e57a464b94)
+사용하려는 기능을 활성화하고 새로고침하면 적용
+
 ## 기능
 
 ### 단축키 추가
