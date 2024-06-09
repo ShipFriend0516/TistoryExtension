@@ -11,55 +11,54 @@ async function keyMapping() {
     }
   }
 
-  const post: Document = (document.getElementById('editor-tistory_ifr') as HTMLIFrameElement).contentDocument;
+  const post = (document.getElementById('editor-tistory_ifr') as HTMLIFrameElement).contentDocument.getElementById(
+    'tinymce',
+  );
 
-  const data = await chrome.storage.local.get('template1');
+  function handleKeyDown(event: KeyboardEvent) {
+    // 원하는 단축키 조합을 확인합니다. (예: Ctrl + Shift + S)
+    if (event.metaKey && event.shiftKey) {
+      if (event.code === 'KeyS') {
+        event.preventDefault();
+        // 클릭하고자 하는 버튼의 선택자를 사용하여 버튼 요소를 찾습니다.
+        const targetButton: HTMLInputElement = document.querySelector('#publish-layer-btn');
 
-  post.addEventListener('keydown', (event: KeyboardEvent) => {
-    if (data.template1 === '' || data.template1 === undefined) {
-      alert('먼저 서식을 저장해야합니다. (확장프로그램 옵션 > 서식 저장)');
-    }
+        // 버튼이 존재하는 경우 클릭 이벤트를 트리거합니다.
+        if (targetButton) {
+          targetButton.click();
+        }
+      } else if (event.code === 'KeyU') {
+        event.preventDefault();
+        // 클릭하고자 하는 버튼의 선택자를 사용하여 버튼 요소를 찾습니다.
+        const targetButton: HTMLInputElement = document.querySelector('#mceu_0-open');
 
-    if (event.altKey && event.metaKey && event.code === 'Semicolon') {
-      console.log(event);
-      const activeElement = post.activeElement as HTMLElement;
-      console.log('서식 단축키 입력됨!');
-
-      if (activeElement && activeElement.isContentEditable) {
-        console.log('편집 가능한 요소입니다.');
-        const selection = post.getSelection();
-
-        if (selection) {
-          const range = selection.getRangeAt(0);
-          const selectedNode = range.endContainer;
-
-          // 문자열을 HTML로 파싱하여 DOM 요소로 변환
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(data.template1, 'text/html');
-          const elements = Array.from(doc.body.children);
-
-          console.log(elements);
-          console.log(typeof selectedNode);
-          // 커서 위치에 HTML을 삽입합니다.
-          if (selectedNode) {
-            console.log('커서 위치에 태그를 삽입할 수 있습니다.');
-
-            elements.reverse().forEach(element => (selectedNode as Element).insertAdjacentElement('afterend', element));
-            // selectedNode.insertAdjacentHTML('afterend', data.template1);
-          } else {
-            console.error('커서 위치에 태그를 삽입하지 못했습니다!');
+        // 버튼이 존재하는 경우 클릭 이벤트를 트리거합니다.
+        if (targetButton) {
+          targetButton.click();
+          const imageUploadButton: HTMLInputElement = document.querySelector('#attach-image');
+          if (imageUploadButton) {
+            imageUploadButton.click();
           }
         }
-      } else {
-        console.error('편집 가능한 요소가 아닙니다!!');
+      } else if (event.code === 'KeyF') {
+        event.preventDefault();
+        // 클릭하고자 하는 버튼의 선택자를 사용하여 버튼 요소를 찾습니다.
+        const targetButton: HTMLInputElement = document.querySelector('#more-plugin-btn-open');
+
+        // 버튼이 존재하는 경우 클릭 이벤트를 트리거합니다.
+        if (targetButton) {
+          targetButton.click();
+          const templateBtn: HTMLInputElement = document.querySelector('#plugin-template');
+          if (templateBtn) {
+            templateBtn.click();
+          }
+        }
       }
     }
+  }
 
-    if (event.altKey && event.metaKey && event.key === 'i') {
-      // Ctrl + Enter가 눌렸을 때의 동작
-      console.log('이미지');
-    }
-  });
+  document.addEventListener('keydown', handleKeyDown);
+  post.addEventListener('keydown', handleKeyDown);
 }
 
 export default keyMapping();

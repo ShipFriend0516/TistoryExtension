@@ -37,6 +37,7 @@ const manifest = {
       js: ['src/pages/contentInjected/index.js'],
       // KEY for cache invalidation
       css: ['assets/css/contentStyle<KEY>.chunk.css'],
+      all_frames: true,
     },
     // {
     //   matches: ['http://*/*', 'https://*/*', '<all_urls>'],
