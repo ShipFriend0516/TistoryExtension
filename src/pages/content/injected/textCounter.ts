@@ -17,10 +17,8 @@ async function textCounter() {
 
   function countWords() {
     const text = post.innerText.trim();
-    const wordCount = text.split(/\s+/).length;
-    const charCount = text.length;
 
-    console.log(`글자 수: ${charCount}, 단어 수: ${wordCount}`);
+    const charCount = text.length;
 
     // 글자 수와 단어 수를 화면에 표시하는 요소 생성
     const counter = document.createElement('div');
@@ -36,7 +34,7 @@ async function textCounter() {
     counter.style.boxShadow = 'rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset';
     counter.style.fontFamily = 'Arial, sans-serif';
     counter.style.fontSize = '14px';
-    counter.style.zIndex = '9999';
+    counter.style.zIndex = '999';
     counter.innerHTML = `글자 수: ${charCount}`;
 
     // 기존의 글자 수 표시 요소 제거
