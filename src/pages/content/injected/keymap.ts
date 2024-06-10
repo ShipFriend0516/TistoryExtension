@@ -75,6 +75,21 @@ async function keyMapping() {
             }
           }
         }
+      } else if (event.code === 'KeyY') {
+        event.preventDefault();
+        const writeModeMenu: HTMLInputElement = document.querySelector('#editor-mode-layer-btn-open');
+        writeModeMenu.click();
+
+        const editorMode = document.querySelector('#editorContainer').firstElementChild.className;
+        const isNormal = editorMode === 'kakao-editor';
+        const normal: HTMLInputElement = document.querySelector('#editor-mode-kakao');
+        const html: HTMLInputElement = document.querySelector('#editor-mode-html');
+
+        if (isNormal) {
+          html.click();
+        } else {
+          normal.click();
+        }
       }
     }
   }
