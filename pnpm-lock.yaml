@@ -15,8 +15,8 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   webextension-polyfill:
-    specifier: 0.10.0
-    version: 0.10.0
+    specifier: 0.12.0
+    version: 0.12.0
 
 devDependencies:
   '@commitlint/cli':
@@ -1343,13 +1343,13 @@ packages:
     resolution: {integrity: sha512-zfM4ipmxVKWdxtDaJ3MP3pBurDXOCoyjvlpE3u6Qzrmw4BPbfm4/ambIeTk/r/J0iq/+2/xp0Fmt+gFvXJY2PQ==}
     dependencies:
       '@types/eslint': 8.44.5
-      '@types/estree': 1.0.3
+      '@types/estree': 1.0.5
     dev: true
 
   /@types/eslint@8.44.5:
     resolution: {integrity: sha512-Ol2eio8LtD/tGM4Ga7Jb83NuFwEv3NqvssSlifXL9xuFpSyQZw0ecmm2Kux6iU0KxQmp95hlPmGCzGJ0TCFeRA==}
     dependencies:
-      '@types/estree': 1.0.3
+      '@types/estree': 1.0.5
       '@types/json-schema': 7.0.14
     dev: true
 
@@ -5470,8 +5470,8 @@ packages:
       graceful-fs: 4.2.11
     dev: true
 
-  /webextension-polyfill@0.10.0:
-    resolution: {integrity: sha512-c5s35LgVa5tFaHhrZDnr3FpQpjj1BB+RXhLTYUxGqBVN460HkbM8TBtEqdXWbpTKfzwCcjAZVF7zXCYSKtcp9g==}
+  /webextension-polyfill@0.12.0:
+    resolution: {integrity: sha512-97TBmpoWJEE+3nFBQ4VocyCdLKfw54rFaJ6EVQYLBCXqCIpLSZkwGgASpv4oPt9gdKCJ80RJlcmNzNn008Ag6Q==}
     dev: false
 
   /webidl-conversions@7.0.0:
@@ -5495,7 +5495,7 @@ packages:
         optional: true
     dependencies:
       '@types/eslint-scope': 3.7.6
-      '@types/estree': 1.0.3
+      '@types/estree': 1.0.5
       '@webassemblyjs/ast': 1.11.6
       '@webassemblyjs/wasm-edit': 1.11.6
       '@webassemblyjs/wasm-parser': 1.11.6
