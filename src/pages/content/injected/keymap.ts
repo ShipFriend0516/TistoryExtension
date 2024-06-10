@@ -11,7 +11,6 @@ async function keyMapping() {
     }
   }
 
-  // const post = document.getElementById('editor-tistory_ifr') as HTMLIFrameElement;
   const editor = (document.getElementById('editor-tistory_ifr') as HTMLIFrameElement).contentDocument.getElementById(
     'tinymce',
   );
@@ -81,7 +80,7 @@ async function keyMapping() {
         writeModeMenu.click();
 
         const editorMode = document.querySelector('#editorContainer').firstElementChild.className;
-        const isNormal = editorMode === 'kakao-editor';
+        const isNormal = editorMode === 'kakao-editor'; // 현재 에디터 이름 확인
         const normal: HTMLInputElement = document.querySelector('#editor-mode-kakao');
         const html: HTMLInputElement = document.querySelector('#editor-mode-html');
 
