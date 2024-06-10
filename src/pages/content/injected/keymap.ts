@@ -11,7 +11,7 @@ async function keyMapping() {
     }
   }
 
-  const post = document.getElementById('editor-tistory_ifr') as HTMLIFrameElement;
+  // const post = document.getElementById('editor-tistory_ifr') as HTMLIFrameElement;
   const editor = (document.getElementById('editor-tistory_ifr') as HTMLIFrameElement).contentDocument.getElementById(
     'tinymce',
   );
@@ -71,28 +71,7 @@ async function keyMapping() {
 
             const prevPostPluginBtn: HTMLInputElement = document.querySelector('#plugin-prev-post');
             if (prevPostPluginBtn) {
-              const postWindow = post.contentWindow;
-
-              // 드래그한 텍스트
-              const selectedText = postWindow.getSelection().toString().trim();
-              console.log(selectedText);
-
-              // 이전 포스트 검색
               prevPostPluginBtn.click();
-
-              setTimeout(() => {
-                const searchInput: HTMLInputElement = document.querySelector('#editorSearch');
-
-                const searchBtn: HTMLInputElement = document.querySelector('.btn_search');
-                if (searchInput && searchBtn) {
-                  searchInput.defaultValue = selectedText;
-                  searchInput.dispatchEvent(new Event('input'));
-                  searchBtn.click();
-                  console.log(searchInput, searchBtn);
-                }
-              }, 500);
-
-              // 필요한 경우 검색 이벤트를 트리거하거나 다른 작업을 수행할 수 있습니다.
             }
           }
         }
