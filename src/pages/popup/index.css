@@ -27,7 +27,22 @@ button {
 .issueMent {
   font-size: 1.1em;
   margin-right: 3px;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 4px;
+  padding: 6px;
+  background-color: darkseagreen;
+  color: white;
+  transition: 0.2s;
+}
+.issueMent:hover {
+  background-color: forestgreen;
+}
+
+a,
+button {
+  cursor: pointer;
 }
 
 .funcDetailSetting {
