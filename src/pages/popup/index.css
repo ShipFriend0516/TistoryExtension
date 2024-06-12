@@ -36,6 +36,7 @@ button {
   color: white;
   transition: 0.2s;
 }
+
 .issueMent:hover {
   background-color: forestgreen;
 }
