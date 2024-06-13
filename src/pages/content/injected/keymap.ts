@@ -17,7 +17,9 @@ async function keyMapping() {
 
   function handleKeyDown(event: KeyboardEvent) {
     // 원하는 단축키 조합을 확인합니다. (예: Ctrl + Shift + S)
-    if (event.metaKey && event.shiftKey) {
+    const isControlOrMetaKey = event.ctrlKey || event.metaKey;
+
+    if (isControlOrMetaKey && event.shiftKey) {
       if (event.code === 'KeyS') {
         event.preventDefault();
         // 클릭하고자 하는 버튼의 선택자를 사용하여 버튼 요소를 찾습니다.
