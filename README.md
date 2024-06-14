@@ -33,6 +33,10 @@
 
 
 ## 적용 방법
-> Release > 최신 버전 다운로드 > 압축해제
-
+> 방법 1. Release > 최신 버전 다운로드 > 압축해제
+> 
 크롬 확장프로그램 관리 탭 > 개발자 모드 활성화 > "압축해제된 확장프로그램을 로드합니다" > 프로젝트의 dist 폴더 지정
+
+> 방법 2. 크롬 웹스토어에서 추가 (추천)
+> 
+링크 : [웹스토어로 이동](https://chromewebstore.google.com/detail/storyhelper/inmbdknioncgblpeiiohmdihhidnjpfp?authuser=0&hl=ko)
