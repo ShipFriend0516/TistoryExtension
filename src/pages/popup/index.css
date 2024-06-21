@@ -1,12 +1,11 @@
 body {
-  width: 300px;
+  width: 360px;
   min-height: 200px;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   position: relative;
   overflow-x: visible;
 }
@@ -17,6 +16,110 @@ code {
 
 button {
   border: 0;
+}
+
+/* 기능 목록 스타일 */
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #a3c9aa;
+}
+
+.popup-container h1 {
+  font-size: 32px;
+  padding: 0;
+  margin: 0;
+  color: #4e6252;
+}
+
+.popup-container ul {
+  padding: 0;
+}
+
+.popup-container li {
+  list-style: none;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.popup-container .funcList {
+  padding: 0.5em;
+  max-width: 240px;
+}
+
+.popup-container .funcList input {
+  margin-right: 10px;
+  width: 24px;
+  aspect-ratio: 1/1;
+}
+
+.popup-container .funcList span {
+  margin-top: 3px;
+}
+
+.popup-container .funcList li {
+  margin: 0 auto;
+}
+
+.btnWrapper button {
+  padding: 4px 20px;
+  border-radius: 3px;
+  border: 0;
+  font-size: 16px;
+}
+
+.btnWrapper button:hover {
+  background-color: #a3c9aa;
+  transform: 0.2s;
+  cursor: pointer;
+}
+
+.btnWrapper {
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+.tab {
+  /* padding: 5px 0px; */
+  color: white;
+
+  display: flex;
+}
+
+.tab > button {
+  transition: 0.2s ease;
+
+  color: black;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.tab > button:last-child {
+  border-right: 1px solid black;
+}
+
+.tab > button:hover {
+  background-color: #808080;
+  color: white;
+}
+
+.tab > .selected {
+  background-color: #434242;
+  color: white;
+}
+
+.table td,
+th {
+  padding: 0.3em 0.8em;
 }
 
 .ment {
@@ -46,6 +149,7 @@ button {
   cursor: pointer;
 }
 
+/* 기능 세부 설정 탭 스타일 */
 .funcDetailSetting {
   /* padding: 4px; */
 }
@@ -59,23 +163,54 @@ button {
   justify-content: space-between;
 }
 
-.keymapSetting > div {
+.table {
+  margin: 4px;
+  border: 1px solid lightgray;
+}
+
+.table > thead > tr {
+  border-bottom: 1px solid black;
+}
+
+.table button {
+  background-color: white;
+  border-radius: 6px;
+  text-wrap: nowrap;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.customArea {
   display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: calc(100% - 1em);
+  margin-top: 5px;
+
+  background-color: lightgray;
+  border-radius: 4px;
 }
 
-.keymapSetting > div > textarea {
-  border: 2px solid darkseagreen;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+.customArea input {
+  width: 0;
+  height: 0;
+  outline: none;
+  opacity: 0;
 }
 
-.keymapSetting > div > button {
-  margin-left: -2px;
-  color: white;
-  background-color: darkseagreen;
-  border: 2px solid darkseagreen;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+.customArea button {
+  height: 100%;
+  background-color: white;
+  transition: 0.2s;
+}
+
+.customArea button:hover {
+  background-color: #c2dbc7;
+}
+
+.customArea .show {
+  padding: 1em;
+}
+.customMent {
+  padding: 0.25em;
 }
 
 /* Credit Component */

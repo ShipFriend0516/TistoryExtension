@@ -1,6 +1,4 @@
 async function keyMapping() {
-  console.log('단축키 스크립트가 정상적으로 로드되었습니다.');
-
   const result = await chrome.storage.local.get('func_0');
   if (typeof result.func_0 === 'boolean') {
     if (!result.func_0) {

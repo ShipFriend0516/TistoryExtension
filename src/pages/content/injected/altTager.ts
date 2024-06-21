@@ -1,6 +1,4 @@
 async function func() {
-  console.log('컨텐츠 스크립트가 정상적으로 로드되었습니다.');
-
   const result = await chrome.storage.local.get('func_1');
   if (typeof result.func_1 === 'boolean') {
     if (!result.func_1) {
