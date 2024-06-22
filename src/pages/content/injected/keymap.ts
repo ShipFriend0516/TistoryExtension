@@ -34,34 +34,55 @@ async function keyMapping() {
   const shortcuts: Shortcut[] = await getCustomShortcuts();
 
   function handleKeyDown(event: KeyboardEvent) {
-    shortcuts.forEach(shortcut => {
-      if (shortcut.custom) {
-        const customKeys = shortcut.custom.split(' + ');
-        const isSatisfied = customKeys.every(key => {
-          switch (key) {
-            case 'Ctrl':
-              return event.ctrlKey;
-            case 'Shift':
-              return event.shiftKey;
-            case 'Alt':
-              return event.altKey;
-            case 'Meta':
-            case 'Command':
-              return event.metaKey;
-            default:
-              return event.code === `Key${key.toUpperCase()}`;
-          }
-        });
+    if (shortcuts)
+      shortcuts.forEach(shortcut => {
+        if (shortcut.custom) {
+          const customKeys = shortcut.custom.split(' + ');
+          const isSatisfied = customKeys.every(key => {
+            switch (key) {
+              case 'Ctrl':
+              case 'Meta':
+              case 'Command':
+                return event.metaKey || event.ctrlKey;
+              case 'Shift':
+                return event.shiftKey;
+              case 'Alt':
+                return event.altKey;
+              default:
+                return event.code === `Key${key.toUpperCase()}`;
+            }
+          });
 
-        if (isSatisfied) {
-          event.preventDefault();
-          handleShortcut(shortcut);
+          if (isSatisfied) {
+            event.preventDefault();
+            handleShortcut(shortcut);
+          }
+        } else if (shortcut.keys) {
+          const defaultKeys = shortcut.keys.split(' + ');
+          const isSatisfied = defaultKeys.every(key => {
+            switch (key) {
+              case 'Shift':
+                return event.shiftKey;
+              case 'Alt':
+                return event.altKey;
+              case 'Ctrl':
+              case 'Meta':
+              case 'Command':
+                return event.metaKey || event.ctrlKey;
+              default:
+                return event.code === `Key${key.toUpperCase()}`;
+            }
+          });
+
+          if (isSatisfied) {
+            event.preventDefault();
+            handleShortcut(shortcut);
+          }
         }
-      }
-    });
+      });
   }
 
-  function handleShortcut(shortcut) {
+  function handleShortcut(shortcut: Shortcut) {
     switch (shortcut.description) {
       case '글 발행':
         handlePublishShortcut();
@@ -75,7 +96,7 @@ async function keyMapping() {
       case '이전 포스트 링크':
         handlePrevPostShortcut();
         break;
-      case '에디터 변환 기본/HTML':
+      case '에디터 변환':
         handleEditorModeShortcut();
         break;
       default:
