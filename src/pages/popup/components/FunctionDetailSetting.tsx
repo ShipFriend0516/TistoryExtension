@@ -162,7 +162,13 @@ const FunctionDetailSetting = () => {
             <b>{shortcuts[customizingIndex!].description}</b> 단축키 수정
           </div>
           <div className="customArea">
-            <div className="show">{customKeys.sort((a, b) => b.length - a.length).join(' + ')}</div>
+            <div className="show">
+              {customKeys.length > 0 ? (
+                customKeys.sort((a, b) => b.length - a.length).join(' + ')
+              ) : (
+                <p>단축키로 사용할 키 조합을 입력</p>
+              )}
+            </div>
             <input type="text" style={{ display: 'hidden' }} onKeyDown={handleCustomKeyMap} autoFocus />
             <div>
               <button onClick={saveCustomKeys}>저장</button>
@@ -171,6 +177,10 @@ const FunctionDetailSetting = () => {
           </div>
         </div>
       )}
+      <div className="ment" style={{ marginTop: '3px' }}>
+        단축키 수정 후 <b>새로고침</b>해야 적용됩니다.
+      </div>
+      <div className="ment">일부 단축키는 작동이 안될 수 있습니다.</div>
     </div>
   );
 };

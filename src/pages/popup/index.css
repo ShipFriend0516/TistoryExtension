@@ -206,6 +206,12 @@ button {
   background-color: #c2dbc7;
 }
 
+.customArea p {
+  margin: 0;
+  padding: 0;
+  color: gray;
+}
+
 .customArea .show {
   padding: 1em;
 }

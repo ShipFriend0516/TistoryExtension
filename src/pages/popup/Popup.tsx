@@ -8,7 +8,7 @@ import Credit from './components/Credit';
 
 const Popup = () => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const tabList = ['기능 목록', '기능 세부 설정', '크레딧'];
+  const tabList = ['기능 목록', '단축키 사용자 지정', '크레딧'];
 
   return (
     <main className="popup-container">
