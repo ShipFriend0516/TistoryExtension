@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 interface Shortcut {
   keys: string;
   description: string;
+  function_id?: number;
   custom?: string;
 }
 
@@ -12,22 +13,27 @@ const FunctionDetailSetting = () => {
     {
       keys: 'Ctrl + Shift + S',
       description: '글 발행',
+      function_id: 1,
     },
     {
       keys: 'Ctrl + Shift + U',
       description: '이미지 업로드',
+      function_id: 2,
     },
     {
       keys: 'Ctrl + Shift + F',
       description: '서식 창 열기',
+      function_id: 3,
     },
     {
       keys: 'Ctrl + Shift + P',
       description: '이전 포스트 링크',
+      function_id: 4,
     },
     {
       keys: 'Ctrl + Shift + Y',
       description: '에디터 변환',
+      function_id: 5,
     },
   ]);
 
@@ -35,6 +41,7 @@ const FunctionDetailSetting = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [customizingIndex, setCustomizingIndex] = useState<number | null>(null);
   const [customKeys, setCustomKeys] = useState<string[]>([]);
+  const [error, setError] = useState('');
 
   // store에서 초기값 불러오기
   const getShortcuts = async () => {
@@ -106,8 +113,12 @@ const FunctionDetailSetting = () => {
 
   const saveCustomKeys = () => {
     if (customizingIndex !== null) {
-      const keys = customKeys.sort((a, b) => b.length - a.length).join(' + ');
-      setShortcuts(prev => prev.map((s, i) => (i === customizingIndex ? { ...s, custom: keys } : s)));
+      if (shortcuts.filter(s => s.custom === customKeys.sort((a, b) => b.length - a.length).join(' + ')).length === 0) {
+        const keys = customKeys.sort((a, b) => b.length - a.length).join(' + ');
+        setShortcuts(prev => prev.map((s, i) => (i === customizingIndex ? { ...s, custom: keys } : s)));
+      } else {
+        setError('이미 사용중인 단축키입니다.');
+      }
     }
     setIsEditing(false);
     setCustomKeys([]);
@@ -144,14 +155,14 @@ const FunctionDetailSetting = () => {
           ))}
         </tbody>
       </table>
-
+      {error && <div style={{ color: 'red' }}>{error}</div>}
       {isEditing && (
-        <div style={{ marginTop: '5px' }}>
+        <div style={{ marginTop: '5px', padding: '2px' }}>
           <div>
             <b>{shortcuts[customizingIndex!].description}</b> 단축키 수정
           </div>
           <div className="customArea">
-            <div className="show">{customKeys.join(' + ')}</div>
+            <div className="show">{customKeys.sort((a, b) => b.length - a.length).join(' + ')}</div>
             <input type="text" style={{ display: 'hidden' }} onKeyDown={handleCustomKeyMap} autoFocus />
             <div>
               <button onClick={saveCustomKeys}>저장</button>
