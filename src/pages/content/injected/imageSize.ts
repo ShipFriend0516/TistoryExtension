@@ -1,7 +1,7 @@
 // 사이드바 코드
 
 async function imageSize() {
-  const result = await chrome.storage.local.get('func_3');
+  const result = await chrome.storage.local.get('func_2');
   if (typeof result.func_2 === 'boolean') {
     if (!result.func_2) {
       console.log('이미지 사이징 기능이 비활성화 되어있습니다.');
