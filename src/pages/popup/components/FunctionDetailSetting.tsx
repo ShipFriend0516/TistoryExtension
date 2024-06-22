@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import { useEffect } from 'react';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 interface Shortcut {
   keys: string;
